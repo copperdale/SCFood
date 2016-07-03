@@ -1,0 +1,14 @@
+dev:
+  - sprite
+  - concurrent:default
+  # - webfont
+  - compass
+  - concat:css
+default:
+  - clean
+  - dev
+  - watch
+build:
+#  - clean
+  - dev
+  - concurrent:build

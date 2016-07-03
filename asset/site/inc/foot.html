@@ -1,0 +1,36 @@
+<footer class="ui-footer ui-footer-btn">
+	<ul class="ui-tiled ui-border-t">
+        <li data-href="index.html" class="ui-border-r"><div>首页</div></li>
+        <li data-href="contact.html" class="ui-border-r"><div>联系我们</div></li>
+        <li id="footUserCenterBtn"><div>个人中心</div></li>
+    </ul>
+</footer>
+    <div class="ui-actionsheet userCenterNav" id="userCenterNav">  
+      <div class="ui-actionsheet-cnt">
+        <!-- <h4>同时会将我从对方的列表中删除</h4>  -->
+        <button>个人信息</button>  
+        <button>个人参加活动记录</button>  
+        <button>个人参加活动缴费</button>  
+        <button>推荐给朋友</button>  
+      </div>         
+    </div>
+</html>
+<script type="text/javascript">
+    $('html').on('click', 'ul li', function(){
+        if($(this).data('href')){
+            location.href= $(this).data('href');
+        }
+    });
+    $("#footUserCenterBtn").click(function(e){
+        $('#userCenterNav').toggleClass('show');
+        e.stopPropagation();
+    });
+    $('body').on('click', function(e){
+        var target = $(this);
+        if(target.hasClass('userCenterNav') || target.closest('.userCenterNav').length){
+            return;
+        }else{
+            $('#userCenterNav').toggleClass('show');
+        }
+    });
+</script>

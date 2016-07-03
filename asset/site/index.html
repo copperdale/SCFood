@@ -1,0 +1,64 @@
+include "head.html"
+
+include "index-banner.html"
+<section class="ui-panel style-index-panel-wraper" id="index_ui_panel">
+    
+</section>
+include "foot.html"
+include "template_indexPanel.html"
+
+<script type="text/javascript">
+    window.addEventListener('load', function(){
+
+        initSlider();
+
+        renderIndexPanel();
+        
+
+    });
+
+    function initSlider(){
+        /* fz 即 FrozenJS 的意思 */
+        var slider = new fz.Scroll('.ui-slider', {
+            role: 'slider',
+            indicator: true,
+            autoplay: true,
+            interval: 3000
+        });
+
+        /* 滑动开始前 */
+        slider.on('beforeScrollStart', function(from, to) {
+            // from 为当前页，to 为下一页
+        })
+
+        /* 滑动结束 */
+        slider.on('scrollEnd', function(cruPage) {
+            // curPage 当前页
+        });
+    }
+
+    function renderIndexPanel(){
+
+        var data ={
+            indexPanelList: [
+                {name   : "协会概况"     , "target": "desc.html", img: "activity.png"},
+                {name   : "公益事业"     , "target": "desc.html", img: "advice.png"},
+                {name   : "会员福利"     , "target": "desc.html", img: "data.png"},
+                {name   : "历史活动"     , "target": "desc.html", img: "join.png"},
+                {name   : "活动中心"     , "target": "desc.html", img: "leave.png"},
+                {name   : "著书/月刊"    , "target": "desc.html", img: "message.png"},
+                {name   : "大厨风采"     , "target": "desc.html", img: "notification.png"},
+                {name   : "前厅管理精英" , "target": "desc.html", img: "recommend.png"},
+                {name   : "优选供应商"   , "target": "desc.html", img: "vote.png"},
+                {name   : "集团采购"     , "target": "desc.html", img: "activity.png"},
+                {name   : "众筹开店"     , "target": "desc.html", img: "advice.png"},
+                {name   : "星级餐厅认证" , "target": "desc.html", img: "join.png"},
+                {name   : "餐饮顾问"     , "target": "desc.html", img: "message.png"},
+                {name   : "中介服务"     , "target": "desc.html", img: "recommend.png"},
+                {name   : "美食推荐"     , "target": "desc.html", img: "data.png"}
+            ]
+        };
+
+        Util.render("template_indexPanel", data, "index_ui_panel");
+    }
+</script>

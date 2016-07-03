@@ -1,0 +1,13 @@
+<script type="text/html" id="template_descList">
+	<ul class="ui-list ui-list-pure ui-border-tb">
+		<%for(var i = 0; i < list.length; i++){
+			var item = list[i];
+			var active = i % 2 ? "" : "";
+		%>
+	    <li class="ui-border-b <%=active%>">
+	        <!-- <h3><%= item.name%></h3> -->
+	        <div class="ui-arrowlink "><%= item.name%></div>
+	    </li>
+	    <%}%>
+	</ul>
+</script>

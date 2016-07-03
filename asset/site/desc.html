@@ -1,0 +1,50 @@
+include "head.html"
+
+<div id="desc_list">
+	
+</div>
+
+include "foot.html"
+include "desc_list.html"
+
+<script type="text/javascript">
+
+	window.addEventListener('load', function(){
+
+		renderDescList();
+
+    })
+
+	function renderDescList(){
+
+        var data ={
+            list: [
+                {name   : "协会宗旨"     				},
+                {name   : "协会基本组织架构"   			},
+                {name   : "协会性质"     				},
+                {name   : "目标服务群体"     			},
+                {name   : "协会专属互动推广平台"     	},
+                {name   : "会员服务"    				},
+                {name   : "各地分会"     				},
+                {name   : "厨政比赛" 					},
+                {name   : "传菜工具书"  				},
+                {name   : "市场考察活动"     			},
+                {name   : "协会所有活动的免责声明"    	},
+                {name   : "协会简介" 					},
+                {name   : "协会公告"     				},
+                {name   : "协会合作伙伴"     			},
+                {name   : "历史活动"    				},
+                {name	: "活动中心"					},
+                {name   : "公益事业" 					},
+                {name   : "餐饮顾问"     				},
+                {name   : "会员福利"     				},
+                {name   : "著书/月刊"    				},
+                {name	: "星级餐厅认证"				},
+                {name   : "美食推荐"     				},
+                {name   : "中介服务"    				}
+            ]
+        };
+
+        Util.render("template_descList", data, "desc_list");
+	}
+</script>

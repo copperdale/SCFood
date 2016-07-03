@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+</html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-language" content="zh-cn"/>
+    <title></title>
+    <link href="resources/css/default.css" rel="stylesheet" type="text/css"/>
+    <script src="resources/script/lib.js"></script>
+</head>
+
+<div class="ui-slider" id="index-banner">
+    <ul class="ui-slider-content" style="width: 400%">
+        <li><span style="background-image:url(resources/images/banner1.jpg)"></span></li>
+        <li><span style="background-image:url(resources/images/banner2.jpg)"></span></li>
+        <li><span style="background-image:url(resources/images/banner3.jpg)"></span></li>
+        <li><span style="background-image:url(resources/images/banner4.jpg)"></span></li>
+    </ul>
+</div>
+<section class="ui-panel style-index-panel-wraper" id="index_ui_panel">
+    
+</section>
+<footer class="ui-footer ui-footer-btn">
+	<ul class="ui-tiled ui-border-t">
+        <li data-href="index.html" class="ui-border-r"><div>首页</div></li>
+        <li data-href="contact.html" class="ui-border-r"><div>联系我们</div></li>
+        <li id="footUserCenterBtn"><div>个人中心</div></li>
+    </ul>
+</footer>
+    <div class="ui-actionsheet userCenterNav" id="userCenterNav">  
+      <div class="ui-actionsheet-cnt">
+        <!-- <h4>同时会将我从对方的列表中删除</h4>  -->
+        <button>个人信息</button>  
+        <button>个人参加活动记录</button>  
+        <button>个人参加活动缴费</button>  
+        <button>推荐给朋友</button>  
+      </div>         
+    </div>
+</html>
+<script type="text/javascript">
+    $('html').on('click', 'ul li', function(){
+        if($(this).data('href')){
+            location.href= $(this).data('href');
+        }
+    });
+    $("#footUserCenterBtn").click(function(e){
+        $('#userCenterNav').toggleClass('show');
+        e.stopPropagation();
+    });
+    $('body').on('click', function(e){
+        var target = $(this);
+        if(target.hasClass('userCenterNav') || target.closest('.userCenterNav').length){
+            return;
+        }else{
+            $('#userCenterNav').toggleClass('show');
+        }
+    });
+</script>
+<script type="text/html" id="template_indexPanel">
+	    <ul class="ui-grid-trisect style-index-panel">
+	    <%
+	    	for(var i = 0; i < indexPanelList.length; i++) { 
+	    		var item = indexPanelList[i];
+	    %>
+	    	<li data-href=<%=item.target %>>
+	            <div class="ui-border margin-top">
+	            	<!-- <h6>&nbsp;</h6> -->
+	                <div class="ui-avatar-lg margin-center" >
+	                    <img style="width: 100%; height: 100%;" src="icon/<%=item.img%>" />
+	                </div>
+	                <div>
+	                    <h4 class="ui-nowrap align-center"><%= item.name%></h4>
+	                </div>
+	            </div>
+	        </li>
+	    <%}%>
+	    </ul>
+</script>
+
+<script type="text/javascript">
+    window.addEventListener('load', function(){
+
+        initSlider();
+
+        renderIndexPanel();
+        
+
+    });
+
+    function initSlider(){
+        /* fz 即 FrozenJS 的意思 */
+        var slider = new fz.Scroll('.ui-slider', {
+            role: 'slider',
+            indicator: true,
+            autoplay: true,
+            interval: 3000
+        });
+
+        /* 滑动开始前 */
+        slider.on('beforeScrollStart', function(from, to) {
+            // from 为当前页，to 为下一页
+        })
+
+        /* 滑动结束 */
+        slider.on('scrollEnd', function(cruPage) {
+            // curPage 当前页
+        });
+    }
+
+    function renderIndexPanel(){
+
+        var data ={
+            indexPanelList: [
+                {name   : "协会概况"     , "target": "desc.html", img: "activity.png"},
+                {name   : "公益事业"     , "target": "desc.html", img: "advice.png"},
+                {name   : "会员福利"     , "target": "desc.html", img: "data.png"},
+                {name   : "历史活动"     , "target": "desc.html", img: "join.png"},
+                {name   : "活动中心"     , "target": "desc.html", img: "leave.png"},
+                {name   : "著书/月刊"    , "target": "desc.html", img: "message.png"},
+                {name   : "大厨风采"     , "target": "desc.html", img: "notification.png"},
+                {name   : "前厅管理精英" , "target": "desc.html", img: "recommend.png"},
+                {name   : "优选供应商"   , "target": "desc.html", img: "vote.png"},
+                {name   : "集团采购"     , "target": "desc.html", img: "activity.png"},
+                {name   : "众筹开店"     , "target": "desc.html", img: "advice.png"},
+                {name   : "星级餐厅认证" , "target": "desc.html", img: "join.png"},
+                {name   : "餐饮顾问"     , "target": "desc.html", img: "message.png"},
+                {name   : "中介服务"     , "target": "desc.html", img: "recommend.png"},
+                {name   : "美食推荐"     , "target": "desc.html", img: "data.png"}
+            ]
+        };
+
+        Util.render("template_indexPanel", data, "index_ui_panel");
+    }
+</script>

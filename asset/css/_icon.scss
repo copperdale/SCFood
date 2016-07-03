@@ -1,0 +1,195 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$icon-activity-name: 'icon-activity';
+$icon-activity-x: 0px;
+$icon-activity-y: 0px;
+$icon-activity-offset-x: 0px;
+$icon-activity-offset-y: 0px;
+$icon-activity-width: 80px;
+$icon-activity-height: 80px;
+$icon-activity-total-width: 332px;
+$icon-activity-total-height: 248px;
+$icon-activity-image: '../images/icon.png';
+$icon-activity: (0px, 0px, 0px, 0px, 80px, 80px, 332px, 248px, '../images/icon.png', 'icon-activity', );
+$icon-advice-name: 'icon-advice';
+$icon-advice-x: 84px;
+$icon-advice-y: 0px;
+$icon-advice-offset-x: -84px;
+$icon-advice-offset-y: 0px;
+$icon-advice-width: 80px;
+$icon-advice-height: 80px;
+$icon-advice-total-width: 332px;
+$icon-advice-total-height: 248px;
+$icon-advice-image: '../images/icon.png';
+$icon-advice: (84px, 0px, -84px, 0px, 80px, 80px, 332px, 248px, '../images/icon.png', 'icon-advice', );
+$icon-data-name: 'icon-data';
+$icon-data-x: 0px;
+$icon-data-y: 84px;
+$icon-data-offset-x: 0px;
+$icon-data-offset-y: -84px;
+$icon-data-width: 80px;
+$icon-data-height: 80px;
+$icon-data-total-width: 332px;
+$icon-data-total-height: 248px;
+$icon-data-image: '../images/icon.png';
+$icon-data: (0px, 84px, 0px, -84px, 80px, 80px, 332px, 248px, '../images/icon.png', 'icon-data', );
+$icon-forum-name: 'icon-forum';
+$icon-forum-x: 84px;
+$icon-forum-y: 84px;
+$icon-forum-offset-x: -84px;
+$icon-forum-offset-y: -84px;
+$icon-forum-width: 80px;
+$icon-forum-height: 80px;
+$icon-forum-total-width: 332px;
+$icon-forum-total-height: 248px;
+$icon-forum-image: '../images/icon.png';
+$icon-forum: (84px, 84px, -84px, -84px, 80px, 80px, 332px, 248px, '../images/icon.png', 'icon-forum', );
+$icon-join-name: 'icon-join';
+$icon-join-x: 168px;
+$icon-join-y: 0px;
+$icon-join-offset-x: -168px;
+$icon-join-offset-y: 0px;
+$icon-join-width: 80px;
+$icon-join-height: 80px;
+$icon-join-total-width: 332px;
+$icon-join-total-height: 248px;
+$icon-join-image: '../images/icon.png';
+$icon-join: (168px, 0px, -168px, 0px, 80px, 80px, 332px, 248px, '../images/icon.png', 'icon-join', );
+$icon-leave-name: 'icon-leave';
+$icon-leave-x: 168px;
+$icon-leave-y: 84px;
+$icon-leave-offset-x: -168px;
+$icon-leave-offset-y: -84px;
+$icon-leave-width: 80px;
+$icon-leave-height: 80px;
+$icon-leave-total-width: 332px;
+$icon-leave-total-height: 248px;
+$icon-leave-image: '../images/icon.png';
+$icon-leave: (168px, 84px, -168px, -84px, 80px, 80px, 332px, 248px, '../images/icon.png', 'icon-leave', );
+$icon-message-name: 'icon-message';
+$icon-message-x: 0px;
+$icon-message-y: 168px;
+$icon-message-offset-x: 0px;
+$icon-message-offset-y: -168px;
+$icon-message-width: 80px;
+$icon-message-height: 80px;
+$icon-message-total-width: 332px;
+$icon-message-total-height: 248px;
+$icon-message-image: '../images/icon.png';
+$icon-message: (0px, 168px, 0px, -168px, 80px, 80px, 332px, 248px, '../images/icon.png', 'icon-message', );
+$icon-notification-name: 'icon-notification';
+$icon-notification-x: 84px;
+$icon-notification-y: 168px;
+$icon-notification-offset-x: -84px;
+$icon-notification-offset-y: -168px;
+$icon-notification-width: 80px;
+$icon-notification-height: 80px;
+$icon-notification-total-width: 332px;
+$icon-notification-total-height: 248px;
+$icon-notification-image: '../images/icon.png';
+$icon-notification: (84px, 168px, -84px, -168px, 80px, 80px, 332px, 248px, '../images/icon.png', 'icon-notification', );
+$icon-recommend-name: 'icon-recommend';
+$icon-recommend-x: 168px;
+$icon-recommend-y: 168px;
+$icon-recommend-offset-x: -168px;
+$icon-recommend-offset-y: -168px;
+$icon-recommend-width: 80px;
+$icon-recommend-height: 80px;
+$icon-recommend-total-width: 332px;
+$icon-recommend-total-height: 248px;
+$icon-recommend-image: '../images/icon.png';
+$icon-recommend: (168px, 168px, -168px, -168px, 80px, 80px, 332px, 248px, '../images/icon.png', 'icon-recommend', );
+$icon-vote-name: 'icon-vote';
+$icon-vote-x: 252px;
+$icon-vote-y: 0px;
+$icon-vote-offset-x: -252px;
+$icon-vote-offset-y: 0px;
+$icon-vote-width: 80px;
+$icon-vote-height: 80px;
+$icon-vote-total-width: 332px;
+$icon-vote-total-height: 248px;
+$icon-vote-image: '../images/icon.png';
+$icon-vote: (252px, 0px, -252px, 0px, 80px, 80px, 332px, 248px, '../images/icon.png', 'icon-vote', );
+$spritesheet-width: 332px;
+$spritesheet-height: 248px;
+$spritesheet-image: '../images/icon.png';
+$spritesheet-sprites: ($icon-activity, $icon-advice, $icon-data, $icon-forum, $icon-join, $icon-leave, $icon-message, $icon-notification, $icon-recommend, $icon-vote, );
+$spritesheet: (332px, 248px, '../images/icon.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "banji",
+  "description": "",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "cd src && http-server",
+    "test": "cd src && python -m SimpleHTTPServer"
+  },
+  "dependencies": {
+    "grunt": "latest",
+    "grunt-spritesmith": "latest",
+    "grunt-webfont": "1.0.2",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-compass": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-imagemin": "latest"
+  },
+  "devDependencies": {
+    "load-grunt-config": "latest",
+    "grunt-concurrent": "latest",
+    "http-server": "^0.8.0",
+    "grunt-includes": "~0.4.0"
+  }
+}

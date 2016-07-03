@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+</html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-language" content="zh-cn"/>
+    <title></title>
+    <link href="resources/css/default.css" rel="stylesheet" type="text/css"/>
+    <script src="resources/script/lib.js"></script>
+</head>
+
+<div id="desc_list">
+	
+</div>
+
+<footer class="ui-footer ui-footer-btn">
+	<ul class="ui-tiled ui-border-t">
+        <li data-href="index.html" class="ui-border-r"><div>首页</div></li>
+        <li data-href="contact.html" class="ui-border-r"><div>联系我们</div></li>
+        <li id="footUserCenterBtn"><div>个人中心</div></li>
+    </ul>
+</footer>
+    <div class="ui-actionsheet userCenterNav" id="userCenterNav">  
+      <div class="ui-actionsheet-cnt">
+        <!-- <h4>同时会将我从对方的列表中删除</h4>  -->
+        <button>个人信息</button>  
+        <button>个人参加活动记录</button>  
+        <button>个人参加活动缴费</button>  
+        <button>推荐给朋友</button>  
+      </div>         
+    </div>
+</html>
+<script type="text/javascript">
+    $('html').on('click', 'ul li', function(){
+        if($(this).data('href')){
+            location.href= $(this).data('href');
+        }
+    });
+    $("#footUserCenterBtn").click(function(e){
+        $('#userCenterNav').toggleClass('show');
+        e.stopPropagation();
+    });
+    $('body').on('click', function(e){
+        var target = $(this);
+        if(target.hasClass('userCenterNav') || target.closest('.userCenterNav').length){
+            return;
+        }else{
+            $('#userCenterNav').toggleClass('show');
+        }
+    });
+</script>
+<script type="text/html" id="template_descList">
+	<ul class="ui-list ui-list-pure ui-border-tb">
+		<%for(var i = 0; i < list.length; i++){
+			var item = list[i];
+			var active = i % 2 ? "" : "";
+		%>
+	    <li class="ui-border-b <%=active%>">
+	        <!-- <h3><%= item.name%></h3> -->
+	        <div class="ui-arrowlink "><%= item.name%></div>
+	    </li>
+	    <%}%>
+	</ul>
+</script>
+
+<script type="text/javascript">
+
+	window.addEventListener('load', function(){
+
+		renderDescList();
+
+    })
+
+	function renderDescList(){
+
+        var data ={
+            list: [
+                {name   : "协会宗旨"     				},
+                {name   : "协会基本组织架构"   			},
+                {name   : "协会性质"     				},
+                {name   : "目标服务群体"     			},
+                {name   : "协会专属互动推广平台"     	},
+                {name   : "会员服务"    				},
+                {name   : "各地分会"     				},
+                {name   : "厨政比赛" 					},
+                {name   : "传菜工具书"  				},
+                {name   : "市场考察活动"     			},
+                {name   : "协会所有活动的免责声明"    	},
+                {name   : "协会简介" 					},
+                {name   : "协会公告"     				},
+                {name   : "协会合作伙伴"     			},
+                {name   : "历史活动"    				},
+                {name	: "活动中心"					},
+                {name   : "公益事业" 					},
+                {name   : "餐饮顾问"     				},
+                {name   : "会员福利"     				},
+                {name   : "著书/月刊"    				},
+                {name	: "星级餐厅认证"				},
+                {name   : "美食推荐"     				},
+                {name   : "中介服务"    				}
+            ]
+        };
+
+        Util.render("template_descList", data, "desc_list");
+	}
+</script>
