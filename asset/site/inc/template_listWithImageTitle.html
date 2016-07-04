@@ -1,0 +1,28 @@
+
+<script type="text/text" id="template_listWithImageTitle">
+<ul class="ui-list ui-list-link ui-border-tb">
+
+	<%
+	for(var i = 0; i < list.length; i++){ 
+		var item = list[i];
+	%>
+    <li class="ui-border-t" style="display: block;">
+
+        <h4 class="padding-top-l"><b><%=item.title%></b></h4>
+        <div style="display: -webkit-box;">
+        	<div class="ui-list-img">
+	            <span style="background-image:url(<%=item.img%>)"></span>
+	        </div>
+	        <div class="ui-list-info">
+	            <h6 class="ui-nowrap">活动地点 : <%=item.address%></h6>
+	            <h6 class="ui-nowrap">本次活动名额 : <%=item.count%></h6>
+	            <h6 class="ui-nowrap">活动类型 : <%=item.type%></h6>
+	            <h6 class="ui-nowrap ui-txt-warning align-right"><%=item.progress%></h6>
+	        </div>
+        </div>
+    </li>
+	<%
+	}
+	%>
+</ul>
+</script>

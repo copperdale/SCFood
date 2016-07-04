@@ -4,9 +4,9 @@
 			var item = list[i];
 			var active = i % 2 ? "" : "";
 		%>
-	    <li class="ui-border-b <%=active%>">
+	    <li class="ui-border-b <%=active%> ui-list-cover margin-top margin-bottom">
 	        <!-- <h3><%= item.name%></h3> -->
-	        <div class="ui-arrowlink "><%= item.name%></div>
+	        <div class="ui-arrowlink"><%= item.name%></div>
 	    </li>
 	    <%}%>
 	</ul>

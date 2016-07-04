@@ -5,9 +5,20 @@ html{
 
 
 /* index.html - indexPanel */
-.style-index-panel-wraper{
-	
+
+*{
+	box-sizing: border-box;
 }
-.style-index-panel{
-	
+#index-banner{
+	height: 200px;
+}
+.style-index-panel-wraper{
+	margin-bottom: 0px;
+	.ui-grid-trisect{
+		padding-left: 5px;
+		padding-right: 0;
+		li{
+			padding-bottom: 0;
+		}
+	}
 }

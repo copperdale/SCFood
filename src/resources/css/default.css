@@ -61,24 +61,59 @@ The `sprites` mixin generates identical output to the CSS template
 }
 
 /* line 12, ../../../asset/css/_helper.scss */
+.active {
+  background-color: #ccc;
+}
+
+/* line 16, ../../../asset/css/_helper.scss */
+.align-right {
+  text-align: right;
+}
+
+/* line 20, ../../../asset/css/_helper.scss */
+.height-30 {
+  height: 30px;
+}
+
+/* line 23, ../../../asset/css/_helper.scss */
+.line-height-30 {
+  line-height: 30px;
+}
+
+/* line 27, ../../../asset/css/_helper.scss */
+.padding-top {
+  padding-top: 4px;
+}
+
+/* line 30, ../../../asset/css/_helper.scss */
+.padding-top-l {
+  padding-top: 8px;
+}
+
+/* line 33, ../../../asset/css/_helper.scss */
 .margin-top {
   margin-top: 4px;
 }
 
-/* line 15, ../../../asset/css/_helper.scss */
+/* line 36, ../../../asset/css/_helper.scss */
 .margin-top-l {
   margin-top: 8px;
 }
 
-/* line 18, ../../../asset/css/_helper.scss */
+/* line 39, ../../../asset/css/_helper.scss */
+.margin-bottom {
+  margin-bottom: 4px;
+}
+
+/* line 42, ../../../asset/css/_helper.scss */
+.margin-bottom-l {
+  margin-bottom: 8px;
+}
+
+/* line 45, ../../../asset/css/_helper.scss */
 .margin-center {
   margin-right: auto;
   margin-left: auto;
-}
-
-/* line 22, ../../../asset/css/_helper.scss */
-#index-banner {
-  height: 100px;
 }
 
 /*mock footer*/
@@ -88,3 +123,26 @@ html {
 }
 
 /* index.html - indexPanel */
+/* line 9, ../../../asset/css/_custom.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 12, ../../../asset/css/_custom.scss */
+#index-banner {
+  height: 200px;
+}
+
+/* line 15, ../../../asset/css/_custom.scss */
+.style-index-panel-wraper {
+  margin-bottom: 0px;
+}
+/* line 17, ../../../asset/css/_custom.scss */
+.style-index-panel-wraper .ui-grid-trisect {
+  padding-left: 5px;
+  padding-right: 0;
+}
+/* line 20, ../../../asset/css/_custom.scss */
+.style-index-panel-wraper .ui-grid-trisect li {
+  padding-bottom: 0;
+}
