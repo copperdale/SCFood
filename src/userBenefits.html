@@ -117,6 +117,7 @@
     window.addEventListener('load', function(){
         renderTips();
         renderApplyInfos();
+        renderActivityList();
     });
 
     function renderTips(){
@@ -148,7 +149,7 @@
         Util.render("template_applyInfos", data, "userBenefits_applyInfos");
     }
 
-    function renderApplyInfos(){
+    function renderActivityList(){
         var data ={
             list: [
                 {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     },
