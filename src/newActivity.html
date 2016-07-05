@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+</html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-language" content="zh-cn"/>
+    <title></title>
+    <link href="resources/css/default.css" rel="stylesheet" type="text/css"/>
+    <script src="resources/script/lib.js"></script>
+</head>
+
+<ul class="ui-list ui-list-pure ui-border-tb">
+    <li class="ui-border-t">
+        <h2 class="align-center">我要发布新活动</h2>
+    </li>
+</ul>    
+
+<div id="newActivity_tags">
+    
+</div>
+<h6 class="ui-whitespace">说明：点击分类图标，选择不同类型活动。</h6>
+
+<div class="ui-form ui-border-t">
+    <form action="#">
+        <div class="ui-form-item ui-form-item-l ui-border-b">
+            <label class="">
+                姓名
+            </label>
+            <input type="text" name="name" placeholder="您的姓名全称">
+            <!-- <a href="#" class="ui-icon-close"></a> -->
+        </div>
+        <div class="ui-form-item ui-form-item-l ui-border-b">
+            <label class="">
+                手机
+            </label>
+            <input type="text" placeholder="请输入手机号码">
+            <!-- <a href="#" class="ui-icon-close"> </a>-->
+        </div>
+        <div class="ui-form-item ui-border-b">
+            <label>所在地区</label>
+            <div class="ui-select-group">
+                <div class="ui-select">
+                    <select>
+                        <option selected>四川</option>
+                        <option>湖南</option>
+                        <option>北京</option>
+                    </select>
+                </div>
+                <div class="ui-select">
+                    <select>
+                        <option selected>成都</option>
+                        <option>绵阳</option>
+                        <option>德阳</option>
+                    </select>
+                </div>
+                <div class="ui-select">
+                    <select>
+                        <option>高新区</option>
+                        <option selected>锦江区</option>
+                        <option>武侯区</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="ui-btn-wrap">
+            <button class="ui-btn-lg">
+                确认提交
+            </button>
+        </div>
+    </form>
+</div>
+
+<footer class="ui-footer ui-footer-btn">
+	<ul class="ui-tiled ui-border-t">
+        <li data-href="index.html" class="ui-border-r">
+            <div class="footer-icon" style="background-image: url(resources/icon/shouye.svg)"></div>
+            <div class="footer-text">首页</div>
+        </li>
+        <li data-href="contact.html" class="ui-border-r">
+            <div class="footer-icon" style="background-image: url(resources/icon/lianxiwomen.svg)"></div>
+            <div class="footer-text">联系我们</div>
+        </li>
+        <li id="footUserCenterBtn">
+            <div class="footer-icon" style="background-image: url(resources/icon/gerenzhongxin.svg)"></div>
+            <div class="footer-text">个人中心</div>
+        </li>
+    </ul>
+</footer>
+    <div class="ui-actionsheet userCenterNav" id="userCenterNav">  
+      <div class="ui-actionsheet-cnt">
+        <!-- <h4>同时会将我从对方的列表中删除</h4>  -->
+        <button>个人信息</button>  
+        <button>个人参加活动记录</button>  
+        <button>个人参加活动缴费</button>  
+        <button>推荐给朋友</button>  
+      </div>         
+    </div>
+</html>
+<script type="text/javascript">
+    $('html').on('click', 'ul li', function(){
+        if($(this).data('href')){
+            location.href= $(this).data('href');
+        }
+    });
+    $("#footUserCenterBtn").click(function(e){
+        $('#userCenterNav').addClass('show');
+        e.stopPropagation();
+    });
+    $('body').on('click', function(e){
+        var target = $(this);
+        if(target.hasClass('userCenterNav') || target.closest('.userCenterNav').length){
+            
+        }else{
+            $('#userCenterNav').removeClass('show');
+        }
+    });
+</script>
+<script type="text/text" id="template_tagList">
+	<div class="ui-label-list margin-top">
+		<%for(var i = 0 ; i < list.length; i++){
+			var item = list[i];
+			var active = i ? "" :"active";
+		%>
+	    <label class="ui-label <%=active%>"><%=item.name%></label>
+		<%}%>
+	</div>
+</script>
+
+<script type="text/javascript">
+    window.addEventListener('load', function(){
+        renderTags();
+    });
+
+    function renderTags(){
+
+        var data ={
+            list: [
+                {name   : "公益捐助"     },
+                {name   : "扶贫团购"     },
+            ]
+        };
+
+        Util.render("template_tagList", data, "newActivity_tags");
+    }
+</script>

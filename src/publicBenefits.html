@@ -10,15 +10,27 @@
     <link href="resources/css/default.css" rel="stylesheet" type="text/css"/>
     <script src="resources/script/lib.js"></script>
 </head>
-<div id="userBenefits_infos">
+<div id="publicBenefits_infos">
     
 </div>
 
-<div id="userBenefits_tags"></div>
-
+<div id="publicBenefits_tags"></div>
 <h6 class="ui-whitespace">说明：点击分类图标，快捷搜索不同类型活动。</h6>
-<div class="ui-whitespace ui-border-t margin-top" id="userBenefits_applyInfos"></div>
-<div id="userBenefits_activityList"></div>
+
+<ul class="ui-list ui-border-tb ui-list-link">
+    <li class="ui-border-t" data-href="newActivity.html">
+        <div class="ui-avatar">
+            <span style="background-image:url(resources/icon/huodongzhongxin.svg)"></span>
+        </div>
+        <div class="ui-list-info">
+            <h4 class="ui-nowrap">我要发布新活动</h4>
+            <p class="ui-nowrap">点击进入填写表格申请</p>
+        </div>
+    </li>
+</ul>
+
+<div class=" ui-border-t margin-top" id="publicBenefits_memberRequestPublicList"></div>
+<div id="publicBenefits_activityList"></div>
 
 <footer class="ui-footer ui-footer-btn">
 	<ul class="ui-tiled ui-border-t">
@@ -79,18 +91,27 @@
 	}
 	%>
 </script>
-<script type="text/text" id="template_applyInfos">
-	<%for(var i = 0 ; i < applyInfos.length; i++){
-		var item = applyInfos[i];
+
+<script type="text/text" id="template_memberRequestPublicList">
+<ul class="ui-list ui-list-pure ui-border-tb">
+
+	<%
+	for(var i = 0; i < list.length; i++){ 
+		var item = list[i];
 	%>
-	    <div class="ui-border-b ui-border-b line-height-30 height-30">
-	        <h4>
-		        <span class="date"><%=item.date%></span> 
-		        <span><%=item.name%></span>
-		        <span><%=item.desc%></span>
-	        </h4>
-	    </div>
-	<%}%>
+    <li class="ui-border-t" style="display: block;">
+    	<p>
+    		<span>会员: <%=item.name%> </span>
+    		<span class="margin-left-l">电话: <%=item.tel%></span>
+    	</p>
+    	<h4>
+    		<%=item.datetime%> 申请发布<%=item.activityName%>活动
+    	</h4>
+    </li>
+	<%
+	}
+	%>
+</ul>
 </script>
 
 <script type="text/text" id="template_listWithImageTitle">
@@ -135,7 +156,7 @@
     window.addEventListener('load', function(){
         renderTips();
         renderTags();
-        renderApplyInfos();
+        renderMemberRequestPublicList();
         renderActivityList();
     });
 
@@ -143,29 +164,29 @@
 
         var data ={
             infoList: [
-                {info   : "温馨提示：已结束的活动请到历史活动中查找"     },
-                {info   : "温馨提示：已结束的活动请到历史活动中查找"     },
-                {info   : "温馨提示：已结束的活动请到历史活动中查找"     },
-                {info   : "温馨提示：已结束的活动请到历史活动中查找"     },
-                {info   : "温馨提示：已结束的活动请到历史活动中查找"     }
+                {info   : "温馨提示：这里是公益事业的温馨提示"     },
+                {info   : "温馨提示：这里是公益事业的温馨提示"     },
+                {info   : "温馨提示：这里是公益事业的温馨提示"     },
+                {info   : "温馨提示：这里是公益事业的温馨提示"     },
+                {info   : "温馨提示：这里是公益事业的温馨提示"     }
             ]
         };
 
-        Util.render("template_tips", data, "userBenefits_infos");
+        Util.render("template_tips", data, "publicBenefits_infos");
     }
 
-    function renderApplyInfos(){
+    function renderMemberRequestPublicList(){
         var data ={
-            applyInfos: [
-                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     },
-                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     },
-                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     },
-                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     },
-                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     }
+            list: [
+                { datetiem: "2016-6-18 18:34", name: "李寻欢", tel: "128****7864", activityName: "公益捐助"     },
+                { datetiem: "2016-6-18 18:34", name: "李寻欢", tel: "128****7864", activityName: "公益捐助"     },
+                { datetiem: "2016-6-18 18:34", name: "李寻欢", tel: "128****7864", activityName: "公益捐助"     },
+                { datetiem: "2016-6-18 18:34", name: "李寻欢", tel: "128****7864", activityName: "公益捐助"     },
+                { datetiem: "2016-6-18 18:34", name: "李寻欢", tel: "128****7864", activityName: "公益捐助"     }
             ]
         };
 
-        Util.render("template_applyInfos", data, "userBenefits_applyInfos");
+        Util.render("template_memberRequestPublicList", data, "publicBenefits_memberRequestPublicList");
     }
 
     function renderActivityList(){
@@ -179,7 +200,7 @@
             ]
         };
 
-        Util.render("template_listWithImageTitle", data, "userBenefits_activityList");
+        Util.render("template_listWithImageTitle", data, "publicBenefits_activityList");
     }
 
     function renderTags(){
@@ -187,13 +208,12 @@
         var data ={
             list: [
                 {name   : "全部活动"     },
-                {name   : "厨房设备"     },
-                {name   : "装修风格"     }，
-                {name   : "会员权益"     },
-                {name   : "新颖餐具"     }
+                {name   : "公益捐助"     },
+                {name   : "扶贫团购"     }
             ]
         };
 
-        Util.render("template_tagList", data, "userBenefits_tags");
+        Util.render("template_tagList", data, "publicBenefits_tags");
     }
+
 </script>
