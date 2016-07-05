@@ -5,9 +5,39 @@ html{
 
 
 /* index.html - indexPanel */
-.style-index-panel-wraper{
-	
+
+*{
+	box-sizing: border-box;
 }
-.style-index-panel{
-	
+#index-banner{
+	height: 200px;
+}
+.style-index-panel-wraper{
+	margin-bottom: 0px;
+	.ui-grid-trisect{
+		padding-left: 5px;
+		padding-right: 0;
+		li{
+			padding-bottom: 0;
+		}
+	}
+}
+
+/*footer*/
+
+.ui-footer {
+	.footer-icon{
+		width: 30px;
+		height: 24px;
+		margin: auto;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	.footer-text{
+		min-width: 40px;
+		height: 24px;
+		font-size: 12px;
+		line-height: 24px;
+	}
 }

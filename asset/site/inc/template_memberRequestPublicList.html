@@ -1,0 +1,22 @@
+
+<script type="text/text" id="template_memberRequestPublicList">
+<ul class="ui-list ui-list-pure ui-border-tb">
+
+	<%
+	for(var i = 0; i < list.length; i++){ 
+		var item = list[i];
+	%>
+    <li class="ui-border-t" style="display: block;">
+    	<p>
+    		<span>会员: <%=item.name%> </span>
+    		<span class="margin-left-l">电话: <%=item.tel%></span>
+    	</p>
+    	<h4>
+    		<%=item.datetime%> 申请发布<%=item.activityName%>活动
+    	</h4>
+    </li>
+	<%
+	}
+	%>
+</ul>
+</script>

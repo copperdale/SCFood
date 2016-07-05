@@ -1,0 +1,10 @@
+<script type="text/text" id="template_tagList">
+	<div class="ui-label-list margin-top">
+		<%for(var i = 0 ; i < list.length; i++){
+			var item = list[i];
+			var active = i ? "" :"active";
+		%>
+	    <label class="ui-label <%=active%>"><%=item.name%></label>
+		<%}%>
+	</div>
+</script>

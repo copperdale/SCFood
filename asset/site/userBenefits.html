@@ -1,0 +1,83 @@
+include "head.html"
+<div id="userBenefits_infos">
+    
+</div>
+
+<div id="userBenefits_tags"></div>
+
+<h6 class="ui-whitespace">说明：点击分类图标，快捷搜索不同类型活动。</h6>
+<div class="ui-whitespace ui-border-t margin-top" id="userBenefits_applyInfos"></div>
+<div id="userBenefits_activityList"></div>
+
+include "foot.html"
+include "template_tips.html"
+include "template_applyInfos.html"
+include "template_listWithImageTitle.html"
+include "template_tagList.html"
+
+<script type="text/javascript">
+    window.addEventListener('load', function(){
+        renderTips();
+        renderTags();
+        renderApplyInfos();
+        renderActivityList();
+    });
+
+    function renderTips(){
+
+        var data ={
+            infoList: [
+                {info   : "温馨提示：已结束的活动请到历史活动中查找"     },
+                {info   : "温馨提示：已结束的活动请到历史活动中查找"     },
+                {info   : "温馨提示：已结束的活动请到历史活动中查找"     },
+                {info   : "温馨提示：已结束的活动请到历史活动中查找"     },
+                {info   : "温馨提示：已结束的活动请到历史活动中查找"     }
+            ]
+        };
+
+        Util.render("template_tips", data, "userBenefits_infos");
+    }
+
+    function renderApplyInfos(){
+        var data ={
+            applyInfos: [
+                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     },
+                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     },
+                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     },
+                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     },
+                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     }
+            ]
+        };
+
+        Util.render("template_applyInfos", data, "userBenefits_applyInfos");
+    }
+
+    function renderActivityList(){
+        var data ={
+            list: [
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     },
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     },
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     },
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     },
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     }
+            ]
+        };
+
+        Util.render("template_listWithImageTitle", data, "userBenefits_activityList");
+    }
+
+    function renderTags(){
+
+        var data ={
+            list: [
+                {name   : "全部活动"     },
+                {name   : "厨房设备"     },
+                {name   : "装修风格"     },
+                {name   : "会员权益"     },
+                {name   : "新颖餐具"     }
+            ]
+        };
+
+        Util.render("template_tagList", data, "userBenefits_tags");
+    }
+</script>

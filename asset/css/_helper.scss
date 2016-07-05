@@ -9,16 +9,47 @@
 	background-image: none !important;
 }
 
+.active{
+	background-color: $activeColor;
+}
+
+.align-right{
+	text-align: right;
+}
+
+.height-30{
+	height: 30px;
+}
+.line-height-30{
+	line-height: 30px;
+}
+
+.padding-top{
+	padding-top: 4px;
+}
+.padding-top-l{
+	padding-top: 8px;
+}
 .margin-top{
 	margin-top: 4px;
 }
 .margin-top-l{
 	margin-top: 8px;
 }
+.margin-bottom{
+	margin-bottom: 4px;
+}
+.margin-bottom-l{
+	margin-bottom: 8px;
+}
 .margin-center{
 	margin-right: auto;
 	margin-left: auto;
 }
-#index-banner{
-	height: 100px;
+.margin-left{
+	margin-left: 4px;
+}
+
+.margin-left-l{
+	margin-left: 8px;
 }

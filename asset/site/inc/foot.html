@@ -1,8 +1,17 @@
 <footer class="ui-footer ui-footer-btn">
 	<ul class="ui-tiled ui-border-t">
-        <li data-href="index.html" class="ui-border-r"><div>首页</div></li>
-        <li data-href="contact.html" class="ui-border-r"><div>联系我们</div></li>
-        <li id="footUserCenterBtn"><div>个人中心</div></li>
+        <li data-href="index.html" class="ui-border-r">
+            <div class="footer-icon" style="background-image: url(resources/icon/shouye.svg)"></div>
+            <div class="footer-text">首页</div>
+        </li>
+        <li data-href="contact.html" class="ui-border-r">
+            <div class="footer-icon" style="background-image: url(resources/icon/lianxiwomen.svg)"></div>
+            <div class="footer-text">联系我们</div>
+        </li>
+        <li id="footUserCenterBtn">
+            <div class="footer-icon" style="background-image: url(resources/icon/gerenzhongxin.svg)"></div>
+            <div class="footer-text">个人中心</div>
+        </li>
     </ul>
 </footer>
     <div class="ui-actionsheet userCenterNav" id="userCenterNav">  
@@ -22,15 +31,15 @@
         }
     });
     $("#footUserCenterBtn").click(function(e){
-        $('#userCenterNav').toggleClass('show');
+        $('#userCenterNav').addClass('show');
         e.stopPropagation();
     });
     $('body').on('click', function(e){
         var target = $(this);
         if(target.hasClass('userCenterNav') || target.closest('.userCenterNav').length){
-            return;
+            
         }else{
-            $('#userCenterNav').toggleClass('show');
+            $('#userCenterNav').removeClass('show');
         }
     });
 </script>
