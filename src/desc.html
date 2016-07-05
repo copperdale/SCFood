@@ -39,13 +39,13 @@
         }
     });
     $("#footUserCenterBtn").click(function(e){
-        $('#userCenterNav').toggleClass('show');
+        $('#userCenterNav').addClass('show');
         e.stopPropagation();
     });
     $('body').on('click', function(e){
         var target = $(this);
         if(target.hasClass('userCenterNav') || target.closest('.userCenterNav').length){
-            return;
+            
         }else{
             $('#userCenterNav').removeClass('show');
         }
@@ -57,9 +57,9 @@
 			var item = list[i];
 			var active = i % 2 ? "" : "";
 		%>
-	    <li class="ui-border-b <%=active%>">
+	    <li class="ui-border-b <%=active%> ui-list-cover margin-top margin-bottom">
 	        <!-- <h3><%= item.name%></h3> -->
-	        <div class="ui-arrowlink "><%= item.name%></div>
+	        <div class="ui-arrowlink"><%= item.name%></div>
 	    </li>
 	    <%}%>
 	</ul>

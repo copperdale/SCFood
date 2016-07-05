@@ -46,13 +46,13 @@
         }
     });
     $("#footUserCenterBtn").click(function(e){
-        $('#userCenterNav').toggleClass('show');
+        $('#userCenterNav').addClass('show');
         e.stopPropagation();
     });
     $('body').on('click', function(e){
         var target = $(this);
         if(target.hasClass('userCenterNav') || target.closest('.userCenterNav').length){
-            return;
+            
         }else{
             $('#userCenterNav').removeClass('show');
         }
@@ -115,7 +115,7 @@
             indexPanelList: [
                 {name   : "协会概况"     , "target": "desc.html", img: "activity.png"},
                 {name   : "公益事业"     , "target": "desc.html", img: "advice.png"},
-                {name   : "会员福利"     , "target": "desc.html", img: "data.png"},
+                {name   : "会员福利"     , "target": "userBenefits.html", img: "data.png"},
                 {name   : "历史活动"     , "target": "desc.html", img: "join.png"},
                 {name   : "活动中心"     , "target": "desc.html", img: "leave.png"},
                 {name   : "著书/月刊"    , "target": "desc.html", img: "message.png"},
