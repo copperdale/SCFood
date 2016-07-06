@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 
@@ -163,3 +164,204 @@
         Util.render("template_listWithImageTitle", data, "userBenefits_activityList");
     }
 </script>
+=======
+<!DOCTYPE html>
+<html>
+
+</html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-language" content="zh-cn"/>
+    <title></title>
+    <link href="resources/css/default.css" rel="stylesheet" type="text/css"/>
+    <script src="resources/script/lib.js"></script>
+</head>
+<div id="userBenefits_infos">
+    
+</div>
+
+<div id="userBenefits_tags"></div>
+
+<h6 class="ui-whitespace">说明：点击分类图标，快捷搜索不同类型活动。</h6>
+<div class="ui-whitespace ui-border-t margin-top" id="userBenefits_applyInfos"></div>
+<div id="userBenefits_activityList"></div>
+
+<footer class="ui-footer ui-footer-btn">
+	<ul class="ui-tiled ui-border-t">
+        <li data-href="index.html" class="ui-border-r">
+            <div class="footer-icon" style="background-image: url(resources/icon/shouye.svg)"></div>
+            <div class="footer-text">首页</div>
+        </li>
+        <li data-href="contact.html" class="ui-border-r">
+            <div class="footer-icon" style="background-image: url(resources/icon/lianxiwomen.svg)"></div>
+            <div class="footer-text">联系我们</div>
+        </li>
+        <li id="footUserCenterBtn">
+            <div class="footer-icon" style="background-image: url(resources/icon/gerenzhongxin.svg)"></div>
+            <div class="footer-text">个人中心</div>
+        </li>
+    </ul>
+</footer>
+    <div class="ui-actionsheet userCenterNav" id="userCenterNav">  
+      <div class="ui-actionsheet-cnt">
+        <!-- <h4>同时会将我从对方的列表中删除</h4>  -->
+        <button>个人信息</button>  
+        <button>个人参加活动记录</button>  
+        <button>个人参加活动缴费</button>  
+        <button>推荐给朋友</button>  
+      </div>         
+    </div>
+</html>
+<script type="text/javascript">
+    $('html').on('click', 'ul li', function(){
+        if($(this).data('href')){
+            location.href= $(this).data('href');
+        }
+    });
+    $("#footUserCenterBtn").click(function(e){
+        $('#userCenterNav').addClass('show');
+        e.stopPropagation();
+    });
+    $('body').on('click', function(e){
+        var target = $(this);
+        if(target.hasClass('userCenterNav') || target.closest('.userCenterNav').length){
+            
+        }else{
+            $('#userCenterNav').removeClass('show');
+        }
+    });
+</script>
+<script type="text/text" id="template_tips">
+	<%
+	for(var i = 0; i < infoList.length; i++){ 
+		var item = infoList[i];
+	%>
+		<div class="ui-tooltips ui-tooltips-warn">
+		    <div class="ui-tooltips-cnt  ui-border-b line-height-30 height-30"><!-- ui-tooltips-cnt-link -->
+		        <!-- <i></i> --><%=item.info%>
+		    </div>
+		</div>
+	<%
+	}
+	%>
+</script>
+<script type="text/text" id="template_applyInfos">
+	<%for(var i = 0 ; i < applyInfos.length; i++){
+		var item = applyInfos[i];
+	%>
+	    <div class="ui-border-b ui-border-b line-height-30 height-30">
+	        <h4>
+		        <span class="date"><%=item.date%></span> 
+		        <span><%=item.name%></span>
+		        <span><%=item.desc%></span>
+	        </h4>
+	    </div>
+	<%}%>
+</script>
+
+<script type="text/text" id="template_listWithImageTitle">
+<ul class="ui-list ui-list-link ui-border-tb">
+
+	<%
+	for(var i = 0; i < list.length; i++){ 
+		var item = list[i];
+	%>
+    <li class="ui-border-t" style="display: block;">
+
+        <h4 class="padding-top-l"><b><%=item.title%></b></h4>
+        <div style="display: -webkit-box;">
+        	<div class="ui-list-img">
+	            <span style="background-image:url(<%=item.img%>)"></span>
+	        </div>
+	        <div class="ui-list-info">
+	            <h6 class="ui-nowrap">活动地点 : <%=item.address%></h6>
+	            <h6 class="ui-nowrap">本次活动名额 : <%=item.count%></h6>
+	            <h6 class="ui-nowrap">活动类型 : <%=item.type%></h6>
+	            <h6 class="ui-nowrap ui-txt-warning align-right"><%=item.progress%></h6>
+	        </div>
+        </div>
+    </li>
+	<%
+	}
+	%>
+</ul>
+</script>
+<script type="text/text" id="template_tagList">
+	<div class="ui-label-list margin-top">
+		<%for(var i = 0 ; i < list.length; i++){
+			var item = list[i];
+			var active = i ? "" :"active";
+		%>
+	    <label class="ui-label <%=active%>"><%=item.name%></label>
+		<%}%>
+	</div>
+</script>
+
+<script type="text/javascript">
+    window.addEventListener('load', function(){
+        renderTips();
+        renderTags();
+        renderApplyInfos();
+        renderActivityList();
+    });
+
+    function renderTips(){
+
+        var data ={
+            infoList: [
+                {info   : "温馨提示：已结束的活动请到历史活动中查找"     },
+                {info   : "温馨提示：已结束的活动请到历史活动中查找"     },
+                {info   : "温馨提示：已结束的活动请到历史活动中查找"     },
+                {info   : "温馨提示：已结束的活动请到历史活动中查找"     },
+                {info   : "温馨提示：已结束的活动请到历史活动中查找"     }
+            ]
+        };
+
+        Util.render("template_tips", data, "userBenefits_infos");
+    }
+
+    function renderApplyInfos(){
+        var data ={
+            applyInfos: [
+                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     },
+                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     },
+                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     },
+                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     },
+                { date: "6-18", name: "李先生", desc: "128****7864 - 报名成功"     }
+            ]
+        };
+
+        Util.render("template_applyInfos", data, "userBenefits_applyInfos");
+    }
+
+    function renderActivityList(){
+        var data ={
+            list: [
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     },
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     },
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     },
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     },
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     }
+            ]
+        };
+
+        Util.render("template_listWithImageTitle", data, "userBenefits_activityList");
+    }
+
+    function renderTags(){
+
+        var data ={
+            list: [
+                {name   : "全部活动"     },
+                {name   : "厨房设备"     },
+                {name   : "装修风格"     },
+                {name   : "会员权益"     },
+                {name   : "新颖餐具"     }
+            ]
+        };
+
+        Util.render("template_tagList", data, "userBenefits_tags");
+    }
+</script>
+>>>>>>> gh-pages

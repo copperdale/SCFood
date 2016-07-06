@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+</html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-language" content="zh-cn"/>
+    <title></title>
+    <link href="resources/css/default.css" rel="stylesheet" type="text/css"/>
+    <script src="resources/script/lib.js"></script>
+</head>
+<div id="publicBenefits_infos">
+    
+</div>
+
+<div id="publicBenefits_tags"></div>
+<h6 class="ui-whitespace">说明：点击分类图标，快捷搜索不同类型活动。</h6>
+
+<ul class="ui-list ui-border-tb ui-list-link">
+    <li class="ui-border-t" data-href="newActivity.html">
+        <div class="ui-avatar">
+            <span style="background-image:url(resources/icon/huodongzhongxin.svg)"></span>
+        </div>
+        <div class="ui-list-info">
+            <h4 class="ui-nowrap">我要发布新活动</h4>
+            <p class="ui-nowrap">点击进入填写表格申请</p>
+        </div>
+    </li>
+</ul>
+
+<div class=" ui-border-t margin-top" id="publicBenefits_memberRequestPublicList"></div>
+<div id="publicBenefits_activityList"></div>
+
+<footer class="ui-footer ui-footer-btn">
+	<ul class="ui-tiled ui-border-t">
+        <li data-href="index.html" class="ui-border-r">
+            <div class="footer-icon" style="background-image: url(resources/icon/shouye.svg)"></div>
+            <div class="footer-text">首页</div>
+        </li>
+        <li data-href="contact.html" class="ui-border-r">
+            <div class="footer-icon" style="background-image: url(resources/icon/lianxiwomen.svg)"></div>
+            <div class="footer-text">联系我们</div>
+        </li>
+        <li id="footUserCenterBtn">
+            <div class="footer-icon" style="background-image: url(resources/icon/gerenzhongxin.svg)"></div>
+            <div class="footer-text">个人中心</div>
+        </li>
+    </ul>
+</footer>
+    <div class="ui-actionsheet userCenterNav" id="userCenterNav">  
+      <div class="ui-actionsheet-cnt">
+        <!-- <h4>同时会将我从对方的列表中删除</h4>  -->
+        <button>个人信息</button>  
+        <button>个人参加活动记录</button>  
+        <button>个人参加活动缴费</button>  
+        <button>推荐给朋友</button>  
+      </div>         
+    </div>
+</html>
+<script type="text/javascript">
+    $('html').on('click', 'ul li', function(){
+        if($(this).data('href')){
+            location.href= $(this).data('href');
+        }
+    });
+    $("#footUserCenterBtn").click(function(e){
+        $('#userCenterNav').addClass('show');
+        e.stopPropagation();
+    });
+    $('body').on('click', function(e){
+        var target = $(this);
+        if(target.hasClass('userCenterNav') || target.closest('.userCenterNav').length){
+            
+        }else{
+            $('#userCenterNav').removeClass('show');
+        }
+    });
+</script>
+<script type="text/text" id="template_tips">
+	<%
+	for(var i = 0; i < infoList.length; i++){ 
+		var item = infoList[i];
+	%>
+		<div class="ui-tooltips ui-tooltips-warn">
+		    <div class="ui-tooltips-cnt  ui-border-b line-height-30 height-30"><!-- ui-tooltips-cnt-link -->
+		        <!-- <i></i> --><%=item.info%>
+		    </div>
+		</div>
+	<%
+	}
+	%>
+</script>
+
+<script type="text/text" id="template_memberRequestPublicList">
+<ul class="ui-list ui-list-pure ui-border-tb">
+
+	<%
+	for(var i = 0; i < list.length; i++){ 
+		var item = list[i];
+	%>
+    <li class="ui-border-t" style="display: block;">
+    	<p>
+    		<span>会员: <%=item.name%> </span>
+    		<span class="margin-left-l">电话: <%=item.tel%></span>
+    	</p>
+    	<h4>
+    		<%=item.datetime%> 申请发布<%=item.activityName%>活动
+    	</h4>
+    </li>
+	<%
+	}
+	%>
+</ul>
+</script>
+
+<script type="text/text" id="template_listWithImageTitle">
+<ul class="ui-list ui-list-link ui-border-tb">
+
+	<%
+	for(var i = 0; i < list.length; i++){ 
+		var item = list[i];
+	%>
+    <li class="ui-border-t" style="display: block;">
+
+        <h4 class="padding-top-l"><b><%=item.title%></b></h4>
+        <div style="display: -webkit-box;">
+        	<div class="ui-list-img">
+	            <span style="background-image:url(<%=item.img%>)"></span>
+	        </div>
+	        <div class="ui-list-info">
+	            <h6 class="ui-nowrap">活动地点 : <%=item.address%></h6>
+	            <h6 class="ui-nowrap">本次活动名额 : <%=item.count%></h6>
+	            <h6 class="ui-nowrap">活动类型 : <%=item.type%></h6>
+	            <h6 class="ui-nowrap ui-txt-warning align-right"><%=item.progress%></h6>
+	        </div>
+        </div>
+    </li>
+	<%
+	}
+	%>
+</ul>
+</script>
+<script type="text/text" id="template_tagList">
+	<div class="ui-label-list margin-top">
+		<%for(var i = 0 ; i < list.length; i++){
+			var item = list[i];
+			var active = i ? "" :"active";
+		%>
+	    <label class="ui-label <%=active%>"><%=item.name%></label>
+		<%}%>
+	</div>
+</script>
+
+<script type="text/javascript">
+    window.addEventListener('load', function(){
+        renderTips();
+        renderTags();
+        renderMemberRequestPublicList();
+        renderActivityList();
+    });
+
+    function renderTips(){
+
+        var data ={
+            infoList: [
+                {info   : "温馨提示：这里是公益事业的温馨提示"     },
+                {info   : "温馨提示：这里是公益事业的温馨提示"     },
+                {info   : "温馨提示：这里是公益事业的温馨提示"     },
+                {info   : "温馨提示：这里是公益事业的温馨提示"     },
+                {info   : "温馨提示：这里是公益事业的温馨提示"     }
+            ]
+        };
+
+        Util.render("template_tips", data, "publicBenefits_infos");
+    }
+
+    function renderMemberRequestPublicList(){
+        var data ={
+            list: [
+                { datetiem: "2016-6-18 18:34", name: "李寻欢", tel: "128****7864", activityName: "公益捐助"     },
+                { datetiem: "2016-6-18 18:34", name: "李寻欢", tel: "128****7864", activityName: "公益捐助"     },
+                { datetiem: "2016-6-18 18:34", name: "李寻欢", tel: "128****7864", activityName: "公益捐助"     },
+                { datetiem: "2016-6-18 18:34", name: "李寻欢", tel: "128****7864", activityName: "公益捐助"     },
+                { datetiem: "2016-6-18 18:34", name: "李寻欢", tel: "128****7864", activityName: "公益捐助"     }
+            ]
+        };
+
+        Util.render("template_memberRequestPublicList", data, "publicBenefits_memberRequestPublicList");
+    }
+
+    function renderActivityList(){
+        var data ={
+            list: [
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     },
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     },
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     },
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     },
+                {"title"   : "2016-6-18 一品香锅开业庆典 活动", "count": 20, "address": "成华区某某大道某某酒店",  "type": '开业', "progress": "活动进行中", "img" : "resources/images/banner1.jpg"     }
+            ]
+        };
+
+        Util.render("template_listWithImageTitle", data, "publicBenefits_activityList");
+    }
+
+    function renderTags(){
+
+        var data ={
+            list: [
+                {name   : "全部活动"     },
+                {name   : "公益捐助"     },
+                {name   : "扶贫团购"     }
+            ]
+        };
+
+        Util.render("template_tagList", data, "publicBenefits_tags");
+    }
+
+</script>

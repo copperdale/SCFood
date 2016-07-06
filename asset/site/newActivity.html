@@ -1,0 +1,83 @@
+include "head.html"
+
+<ul class="ui-list ui-list-pure ui-border-tb">
+    <li class="ui-border-t">
+        <h2 class="align-center">我要发布新活动</h2>
+    </li>
+</ul>    
+
+<div id="newActivity_tags">
+    
+</div>
+<h6 class="ui-whitespace">说明：点击分类图标，选择不同类型活动。</h6>
+
+<div class="ui-form ui-border-t">
+    <form action="#">
+        <div class="ui-form-item ui-form-item-l ui-border-b">
+            <label class="">
+                姓名
+            </label>
+            <input type="text" name="name" placeholder="您的姓名全称">
+            <!-- <a href="#" class="ui-icon-close"></a> -->
+        </div>
+        <div class="ui-form-item ui-form-item-l ui-border-b">
+            <label class="">
+                手机
+            </label>
+            <input type="text" placeholder="请输入手机号码">
+            <!-- <a href="#" class="ui-icon-close"> </a>-->
+        </div>
+        <div class="ui-form-item ui-border-b">
+            <label>所在地区</label>
+            <div class="ui-select-group">
+                <div class="ui-select">
+                    <select>
+                        <option selected>四川</option>
+                        <option>湖南</option>
+                        <option>北京</option>
+                    </select>
+                </div>
+                <div class="ui-select">
+                    <select>
+                        <option selected>成都</option>
+                        <option>绵阳</option>
+                        <option>德阳</option>
+                    </select>
+                </div>
+                <div class="ui-select">
+                    <select>
+                        <option>高新区</option>
+                        <option selected>锦江区</option>
+                        <option>武侯区</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="ui-btn-wrap">
+            <button class="ui-btn-lg">
+                确认提交
+            </button>
+        </div>
+    </form>
+</div>
+
+include "foot.html"
+include "template_tagList.html"
+
+<script type="text/javascript">
+    window.addEventListener('load', function(){
+        renderTags();
+    });
+
+    function renderTags(){
+
+        var data ={
+            list: [
+                {name   : "公益捐助"     },
+                {name   : "扶贫团购"     },
+            ]
+        };
+
+        Util.render("template_tagList", data, "newActivity_tags");
+    }
+</script>

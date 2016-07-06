@@ -116,6 +116,16 @@ The `sprites` mixin generates identical output to the CSS template
   margin-left: auto;
 }
 
+/* line 49, ../../../asset/css/_helper.scss */
+.margin-left {
+  margin-left: 4px;
+}
+
+/* line 53, ../../../asset/css/_helper.scss */
+.margin-left-l {
+  margin-left: 8px;
+}
+
 /*mock footer*/
 /* line 2, ../../../asset/css/_custom.scss */
 html {
@@ -145,4 +155,22 @@ html {
 /* line 20, ../../../asset/css/_custom.scss */
 .style-index-panel-wraper .ui-grid-trisect li {
   padding-bottom: 0;
+}
+
+/*footer*/
+/* line 29, ../../../asset/css/_custom.scss */
+.ui-footer .footer-icon {
+  width: 30px;
+  height: 24px;
+  margin: auto;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* line 37, ../../../asset/css/_custom.scss */
+.ui-footer .footer-text {
+  min-width: 40px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
 }

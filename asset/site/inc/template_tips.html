@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script type="text/text" id="template_tips">
 	<%
 	for(var i = 0; i < infoList.length; i++){ 
@@ -11,4 +12,19 @@
 	<%
 	}
 	%>
+=======
+<script type="text/text" id="template_tips">
+	<%
+	for(var i = 0; i < infoList.length; i++){ 
+		var item = infoList[i];
+	%>
+		<div class="ui-tooltips ui-tooltips-warn">
+		    <div class="ui-tooltips-cnt  ui-border-b line-height-30 height-30"><!-- ui-tooltips-cnt-link -->
+		        <!-- <i></i> --><%=item.info%>
+		    </div>
+		</div>
+	<%
+	}
+	%>
+>>>>>>> gh-pages
 </script>
