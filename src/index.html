@@ -68,19 +68,19 @@
     });
 </script>
 <script type="text/html" id="template_indexPanel">
-	    <ul class="ui-grid-trisect style-index-panel">
+	    <ul class="style-index-panel">
 	    <%
 	    	for(var i = 0; i < indexPanelList.length; i++) { 
 	    		var item = indexPanelList[i];
 	    %>
 	    	<li data-href=<%=item.target %>>
-	            <div class="ui-border margin-top">
+	            <div class="">
 	            	<!-- <h6>&nbsp;</h6> -->
-	                <div class="ui-avatar-lg margin-center" >
+	                <div class="ui-avatar-lg margin-center icon-image-wrap" >
 	                    <img style="width: 100%; height: 100%;" src="resources/icon/<%=item.img%>.svg" />
 	                </div>
 	                <div>
-	                    <h4 class="ui-nowrap align-center"><%= item.name%></h4>
+	                    <div class="ui-nowrap align-center icon-text"><%= item.name%></div>
 	                </div>
 	            </div>
 	        </li>
@@ -128,7 +128,7 @@
                 {name   : "历史活动"     ,  "target":  "desc.html",         img: "lishihuodong"},
                 {name   : "活动中心"     ,  "target": "desc.html",          img: "huodongzhongxin"},
                 {name   : "著书/月刊"    ,  "target": "desc.html",          img: "zhushuyuekan"},
-                {name   : "大厨风采"     ,  "target": "desc.html",          img: "dachufencai"},
+                {name   : "大厨风采"     ,  "target": "desc.html",          img: "dachufengcai"},
                 {name   : "前厅管理精英" ,  "target": "desc.html",          img: "qiantingguanlijingying"},
                 {name   : "优选供应商"   ,  "target": "desc.html",          img: "youxuangongyingshang"},
                 {name   : "集团采购"     ,  "target": "desc.html",          img: "jituancaigou"},
