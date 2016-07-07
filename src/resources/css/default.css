@@ -146,22 +146,25 @@ html {
 /* line 17, ../../../asset/css/_custom.scss */
 .style-index-panel-wraper .style-index-panel li {
   width: 33.33%;
+  height: 120px;
   float: left;
-  border: 2px solid #f5f5f5;
+  border: 1px solid #f5f5f5;
 }
-/* line 21, ../../../asset/css/_custom.scss */
+/* line 22, ../../../asset/css/_custom.scss */
 .style-index-panel-wraper .style-index-panel li .icon-image-wrap {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
-/* line 25, ../../../asset/css/_custom.scss */
+/* line 28, ../../../asset/css/_custom.scss */
 .style-index-panel-wraper .style-index-panel li .icon-text {
   font-size: 16px;
   color: #444546;
 }
 
 /*footer*/
-/* line 36, ../../../asset/css/_custom.scss */
+/* line 39, ../../../asset/css/_custom.scss */
 .ui-footer .footer-icon {
   width: 30px;
   height: 24px;
@@ -170,7 +173,7 @@ html {
   background-position: center;
   background-repeat: no-repeat;
 }
-/* line 44, ../../../asset/css/_custom.scss */
+/* line 47, ../../../asset/css/_custom.scss */
 .ui-footer .footer-text {
   min-width: 40px;
   height: 24px;
